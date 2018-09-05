@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="dist/css/style.css" />
+</head>
+<body>
+
+  <form name="s-input-mask" method="POST" action="#">
+
+    <input type="text" class="form-input" name="cool-input-1" placeholder="(8)-345 232 122" required/>
+    <s-input-mask for="cool-input-1" mask="(0) 000 000 000" placeholder="#"></s-input-mask>
+    <s-validator for="cool-input-1" pattern="\([0-9]\)\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}"></s-validator>
+
+    <input type="text" class="form-input" name="cool-input-2" placeholder="yyyy-mm-dd"/>
+    <s-input-mask for="cool-input-2" mask="date" options="{pattern:'Y-m-d'}"></s-input-mask>
+
+    <!-- <input type="text" class="form-input" name="cool-input-3" placeholder="john.doe@example.com"/>
+    <s-input-mask for="cool-input-3" mask="email"></s-input-mask>
+
+    <input type="text" class="form-input" name="cool-input-4" placeholder="https://example.com"/>
+    <s-input-mask for="cool-input-4" mask="url"></s-input-mask> -->
+
+    <input type="submit" class="btn" value="Submit" />
+
+  </form>
+
+
+  <script src="dist/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+{
+  "name": "coffeekraken-s-component-name-component",
+  "version": "1.0.0",
+  "description": "component-description",
+  "main": "dist/index.js",
+  "homepage": "http://coffeekraken.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coffeekraken/s-{component-name}-component"
+  },
+  "watch": {
+    "doc:js": {
+      "paths": "src/**/*.js"
+    },
+    "doc:css": {
+      "paths": "src/**/*.scss"
+    },
+    "demo:js": {
+      "paths": "demo/src/**/*.js"
+    },
+    "demo:css": {
+      "paths": "demo/src/**/*.scss"
+    }
+  },
+  "scripts": {
+    "dist": "npm run dist:js",
+    "dist:js": "babel src -d dist --watch",
+    "playground": "coffeekraken-code-playground",
+    "demo": "rm -rf demo/dist && npm run demo:js && npm run demo:css && run demo:server",
+    "demo:js": "webpack",
+    "demo:css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css  --include-path node_modules --output-style expanded",
+    "demo:server": "http-server demo",
+    "doc": "rm -rf doc && npm run doc:js && npm run doc:css",
+    "doc:js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc --remove-path src/",
+    "doc:css": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc --remove-path src/",
+    "start": "coffeekraken-scripts-stack dist:js demo:server -i dist -i start -i demo",
+    "test": "jest",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "standard 'src/**/*.js'",
+    "lint:css": "stylelint 'src/sass/**/*.scss'",
+    "changelog": "git-changelog --version_name $npm_package_version  --app_name $npm_package_name --intro \"$npm_package_description\" --logo \".resources/coffeekraken-logo.jpg\""
+  },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
+  "keywords": [
+    "webcomponent",
+    "component",
+    "html",
+    "sugar",
+    "coffee",
+    "kraken",
+    "coffeekraken"
+  ],
+  "author": "Coffeekraken <hello@coffeekraken.io>",
+  "contributors": [
+    {
+      "name": "Olivier Bossel",
+      "email": "olivier.bossel@gmail.com",
+      "url": "http://olivierbossel.com"
+    }
+  ],
+  "license": "MIT",
+  "jest": {
+    "roots": [
+      "tests"
+    ]
+  },
+  "dependencies": {
+    "coffeekraken-sugar": "^1.0.5",
+    "imask": "^3.4.0",
+    "inputmask": "^4.0.0"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-default": "^7.0.0-alpha.20",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "coffeekraken-code-playground": "^1.0.0",
+    "coffeekraken-docblock-to-markdown": "^1.0.0",
+    "coffeekraken-s-button-component": "^1.0.1",
+    "coffeekraken-s-form-component": "^1.0.3",
+    "coffeekraken-s-typography-component": "^1.0.1",
+    "coffeekraken-s-validator-component": "^1.0.6",
+    "coffeekraken-scripts-stack": "^1.0.1",
+    "git-changelog": "^1.1.2",
+    "http-server": "^0.11.1",
+    "jest": "^23.3.0",
+    "node-sass": "^4.0.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^11.0.1",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.2.0",
+    "webcomponents.js": "^0.7.24",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
