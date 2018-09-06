@@ -1,12 +1,12 @@
 {
-  "name": "coffeekraken-s-component-name-component",
+  "name": "coffeekraken-s-input-mask-component",
   "version": "1.0.0",
-  "description": "component-description",
+  "description": "Provide a simple efficient webcomponent wrapper around the amazing imaskjs library",
   "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coffeekraken/s-{component-name}-component"
+    "url": "https://github.com/coffeekraken/s-input-mask-component"
   },
   "watch": {
     "doc:js": {
@@ -45,6 +45,9 @@
     "lint"
   ],
   "keywords": [
+    "input",
+    "mask",
+    "imaskjs",
     "webcomponent",
     "component",
     "html",
@@ -69,8 +72,7 @@
   },
   "dependencies": {
     "coffeekraken-sugar": "^1.0.5",
-    "imask": "^3.4.0",
-    "inputmask": "^4.0.0"
+    "imask": "^3.4.0"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.0.0",
