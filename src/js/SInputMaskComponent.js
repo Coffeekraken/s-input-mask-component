@@ -2,7 +2,6 @@ import SWebComponent from 'coffeekraken-sugar/js/core/SWebComponent'
 import Imask from 'imask'
 
 export default class SInputMaskComponent extends SWebComponent {
-
   /**
    * Default props
    * @definition    SWebComponent.defaultProps
@@ -65,32 +64,38 @@ export default class SInputMaskComponent extends SWebComponent {
     super.componentMount()
 
     // get the input
-		if (this.props.for instanceof HTMLElement) {
+    if (this.props.for instanceof window.HTMLElement) {
       this._inputElm = this.props.for
-		} else if (typeof this.props.for === 'string') {
-			this._inputElm = document.querySelector(`[name="${this.props.for}"], #${this.props.for}`);
+    } else if (typeof this.props.for === 'string') {
+      this._inputElm = document.querySelector(`[name="${this.props.for}"], #${this.props.for}`)
     }
 
     if (!this._inputElm) {
-      throw(`SInputMaskComponent : In order to work, you need to specify a proper input target...`)
+      throw new Error(`SInputMaskComponent : In order to work, you need to specify a proper input target...`)
     }
 
-    let mask = this.props.mask;
-    switch(mask.toString().toLowerCase()) {
+    let mask = this.props.mask
+    switch (mask.toString().toLowerCase()) {
       case 'date':
         mask = Date
         break
       case 'number':
         mask = Number
-        break;
+        break
+      case 'url':
+        mask = /^http:\/\/\d+$/
+        break
+      case 'email':
+        mask = /^\S*@?\S*$/
+        break
     }
 
     // init the mask plugin
-    console.log(this.props.mask)
+    console.log(mask)
     this._imask = new Imask(this._inputElm, {
       mask: mask,
-      lazy: !this.props.placeholder,  // make placeholder always visible
-      placeholderChar: this.props.placeholder || '_',
+      lazy: !this.props.placeholder, // make placeholder always visible
+      placeholderChar: (typeof this.props.placeholder === 'string') ? this.props.placeholder : '_',
       ...this.props.options
     })
 
@@ -101,7 +106,6 @@ export default class SInputMaskComponent extends SWebComponent {
     //   inputFormat: this.props.inputFormat,
     //   ...this.props.options
     // }).mask(this._inputElm)
-
   }
 
   /**

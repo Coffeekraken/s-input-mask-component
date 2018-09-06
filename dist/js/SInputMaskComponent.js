@@ -66,14 +66,20 @@ var SInputMaskComponent = function (_SWebComponent) {
         case 'number':
           mask = Number;
           break;
+        case 'url':
+          mask = /^http:\/\/\d+$/;
+          break;
+        case 'email':
+          mask = /^\S*@?\S*$/;
+          break;
       }
 
       // init the mask plugin
-      console.log(this.props.mask);
+      console.log(mask);
       this._imask = new _imask2.default(this._inputElm, _extends({
         mask: mask,
         lazy: !this.props.placeholder, // make placeholder always visible
-        placeholderChar: this.props.placeholder || '_'
+        placeholderChar: typeof this.props.placeholder === 'string' ? this.props.placeholder : '_'
       }, this.props.options));
 
       // init the mask plugin
