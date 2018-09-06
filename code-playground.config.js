@@ -3,7 +3,7 @@ module.exports = {
   port: 3000,
 
   // title
-  title: 's-{component-name}-component',
+  title: 's-input-mask-component',
 
   // layout
   layout: 'right',
@@ -22,11 +22,12 @@ module.exports = {
       language: 'html',
       data: `
         <h1 class="h3 m-b-small">
-          Coffeekraken s-{component-name}-component
+          Coffeekraken s-input-mask-component
         </h1>
         <p class="p m-b-bigger">
-          {component-description}
+          Provide a simple efficient webcomponent wrapper around the amazing imaskjs library
         </p>
+
         <form name="s-input-mask" method="POST" action="#">
 
           <div class="m-b">

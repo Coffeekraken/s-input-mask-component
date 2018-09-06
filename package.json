@@ -1,6 +1,6 @@
 {
   "name": "coffeekraken-s-input-mask-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provide a simple efficient webcomponent wrapper around the amazing imaskjs library",
   "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
