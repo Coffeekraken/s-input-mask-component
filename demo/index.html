@@ -7,17 +7,35 @@
 
   <form name="s-input-mask" method="POST" action="#">
 
-    <input type="text" class="form-input" name="cool-input-1" placeholder="(8)-345 232 122" required/>
-    <s-input-mask for="cool-input-1" mask="(0) 000 000 000" placeholder="#"></s-input-mask>
-    <s-validator for="cool-input-1" pattern="\([0-9]\)\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" messages="{pattern:'The value entered does not match the input mask'}"></s-validator>
+    <div class="m-b">
+      <input type="text" class="form-input" name="cool-input-1" placeholder="(8)-345 232 122" required/>
+      <s-input-mask for="cool-input-1" mask="(0) 000 000 000" placeholder="#"></s-input-mask>
+      <s-validator for="cool-input-1" pattern="\([0-9]\)\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}" messages="{pattern:'The value entered does not match the input mask'}"></s-validator>
+    </div>
 
-    <input type="text" class="form-input" name="cool-input-2" placeholder="dd-mm-yyyy"/>
-    <s-input-mask for="cool-input-2" mask="date" placeholdeer></s-input-mask>
-    <s-validator for="cool-input-2" ddmmyyyy></s-validator>
+    <div class="m-b"></div>
+      <input type="text" class="form-input" name="cool-input-2" placeholder="0000 0000 0000 0000" required/>
+      <s-input-mask for="cool-input-2" mask="credit-card:number"></s-input-mask>
+      <s-validator for="cool-input-2" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" messages="{pattern:'This field has to be a valid credit card number'}"></s-validator>
+    </div>
 
-    <input type="text" class="form-input" name="cool-input-3" placeholder="https://example.com" required/>
-    <s-input-mask for="cool-input-3" mask="email"></s-input-mask>
-    <s-validator for="cool-input-3" email></s-validator>
+    <div class="m-b"></div>
+      <input type="text" class="form-input" name="cool-input-3" placeholder="MM/YY" required/>
+      <s-input-mask for="cool-input-3" mask="credit-card:date"></s-input-mask>
+      <s-validator for="cool-input-3" pattern="\d\d\/\d\d" messages="{pattern:'This field has to be a valid MM/YY value'}"></s-validator>
+    </div>
+
+    <div class="m-b"></div>
+      <input type="text" class="form-input" name="cool-input-4" placeholder="365" required/>
+      <s-input-mask for="cool-input-4" mask="credit-card:security-code"></s-input-mask>
+      <s-validator for="cool-input-4" pattern="\d\d\d\d?" messages="{pattern:'This field has to be a valid 3/4 digits value'}"></s-validator>
+    </div>
+
+    <div class="m-b"></div>
+      <input type="text" class="form-input" name="cool-input-5" placeholder="YYYY-MM-DD" required/>
+      <s-input-mask for="cool-input-5" mask="date:yyyy-mm-dd"></s-input-mask>
+      <s-validator for="cool-input-5" yyyymmdd></s-validator>
+    </div>
 
     <!-- <input type="text" class="form-input" name="cool-input-4" placeholder="https://example.com"/>
     <s-input-mask for="cool-input-4" mask="url"></s-input-mask> -->
