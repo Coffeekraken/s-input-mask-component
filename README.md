@@ -29,6 +29,8 @@
 
 Provide a simple efficient webcomponent wrapper around the amazing [imaskjs](https://github.com/uNmAnNeR/imaskjs) library
 
+[![View demo](http://components.coffeekraken.io/assets/img/view-demo.png)](http://components.coffeekraken.io/app/s-input-mask-component)
+
 ## Table of content
 
 1. **[Demo](http://components.coffeekraken.io/app/s-input-mask-component)**
