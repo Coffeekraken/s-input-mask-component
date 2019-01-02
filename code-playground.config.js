@@ -86,7 +86,6 @@ module.exports = {
     js: {
       language: 'js',
       data: `
-        import 'webcomponents.js/webcomponents-lite'
         import SInputMaskComponent from './dist/index'
         import SValidatorComponent from 'coffeekraken-s-validator-component'
       `
